@@ -38,6 +38,9 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 	 */
 	public Map<String, Object>  session;
 
+	private String category;
+
+
 	private List<CartDTO> cartList = new ArrayList<CartDTO>();
 
 	private Collection<String> checkList;
@@ -54,77 +57,93 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 	public String execute() {
 		String result = ERROR;
 		System.out.println("------BuyItemAction");
-		System.out.println(id);
-		System.out.println(itemName);
-		System.out.println(itemPrice);
-		System.out.println(itemStock);
-		System.out.println(count);
-		System.out.println(pay);
 
-		String[] idList=id.split(", ", 0);
-		String[] itemNameList=itemName.split(", ",0);
-		String[] itemPriceList=itemPrice.split(", ", 0);
-		String[] itemStockList=itemStock.split(", ", 0);
-		String[] countList=count.split(", ", 0);
+		BuyItemDAO buyItemDAO = new BuyItemDAO();
+		if(id==null){
+			if(category.equals("all")){
+				itemInfoTransactionList = buyItemDAO.getItemInfoTransactionList();
+			}else{
+
+				itemInfoTransactionList = buyItemDAO.getItemInfoTransactionListByCategory(category);
+			}
+		}else{
+
+			System.out.println(id);
+			System.out.println(itemName);
+			System.out.println(itemPrice);
+			System.out.println(itemStock);
+			System.out.println(count);
+			System.out.println(pay);
+			System.out.println(loginUserId);
+			System.out.println(userMasterId);
+
+			System.out.println("CATEGORY : " + category );
+
+			String[] idList=id.split(", ", 0);
+			String[] itemNameList=itemName.split(", ",0);
+			String[] itemPriceList=itemPrice.split(", ", 0);
+			String[] itemStockList=itemStock.split(", ", 0);
+			String[] countList=count.split(", ", 0);
 
 
-		if(checkList==null){
-			errorMessage="商品が選択されていません。";
-			BuyItemDAO buyItemDAO = new BuyItemDAO();
-			itemInfoTransactionList = buyItemDAO.getItemInfoTransactionList();
-			return ERROR;
+			if(checkList==null){
+				errorMessage="商品が選択されていません。";
+				BuyItemDAO dao = new BuyItemDAO();
+				itemInfoTransactionList = dao.getItemInfoTransactionList();
+				return ERROR;
+			}
+			for(String check : checkList){
+				System.out.println(check);
+			}
+
+			for(String check : checkList){
+				int checkedId=(Integer.parseInt(check))-1;
+				CartDTO dto=new CartDTO();
+				dto.setId(String.valueOf(idList[checkedId]));
+				dto.setItemTransactionId(String.valueOf(idList[checkedId]));
+				dto.setItemName(String.valueOf(itemNameList[checkedId]));
+				int totalCount=Integer.parseInt(countList[checkedId]);
+				int price=Integer.parseInt(itemPriceList[checkedId]);
+				dto.setItemPrice(String.valueOf(price));
+				dto.setItemStock(String.valueOf(itemStockList[checkedId]));
+				dto.setCount(String.valueOf(countList[checkedId]));
+				int total=price * totalCount;
+				dto.setTotalPrice(String.valueOf(total));
+				dto.setTotalCount(String.valueOf(countList[checkedId]));
+				dto.setUserMasterId(userMasterId);
+				dto.setPay(pay);
+
+				System.out.println("---カート情報["+checkedId+"]---");
+				System.out.println("ID               :"+dto.getId());
+				System.out.println("ITEMTRANSACTIONID:"+dto.getItemTransactionId());
+				System.out.println("ITEMNAME         :"+dto.getItemName());
+				System.out.println("ITEMPRICE        :"+dto.getItemPrice());
+				System.out.println("ITEMSTOCK        :"+dto.getItemStock());
+				System.out.println("COUNT            :"+dto.getCount());
+				System.out.println("TOTALPRICE       :"+dto.getTotalPrice());
+				System.out.println("TOTALCOUNT       :"+dto.getTotalCount());
+				System.out.println("USERMASTERID     :"+dto.getUserMasterId());
+				System.out.println("PAY              :"+dto.getPay());
+				System.out.println("------------------");
+				cartList.add(dto);
+			}
 		}
-		for(String check : checkList){
-			System.out.println(check);
-		}
-
-		for(String check : checkList){
-			int checkedId=(Integer.parseInt(check))-1;
-			CartDTO dto=new CartDTO();
-			dto.setId(String.valueOf(idList[checkedId]));
-			dto.setItemTransactionId(String.valueOf(idList[checkedId]));
-			dto.setItemName(String.valueOf(itemNameList[checkedId]));
-			int totalCount=Integer.parseInt(countList[checkedId]);
-			int price=Integer.parseInt(itemPriceList[checkedId]);
-			dto.setItemPrice(String.valueOf(price));
-			dto.setItemStock(String.valueOf(itemStockList[checkedId]));
-			dto.setCount(String.valueOf(countList[checkedId]));
-			int total=price * totalCount;
-			dto.setTotalPrice(String.valueOf(total));
-			dto.setTotalCount(String.valueOf(countList[checkedId]));
-			dto.setUserMasterId(userMasterId);
-			dto.setPay(pay);
-
-			System.out.println("---カート情報["+checkedId+"]---");
-			System.out.println("ID               :"+dto.getId());
-			System.out.println("ITEMTRANSACTIONID:"+dto.getItemTransactionId());
-			System.out.println("ITEMNAME         :"+dto.getItemName());
-			System.out.println("ITEMPRICE        :"+dto.getItemPrice());
-			System.out.println("ITEMSTOCK        :"+dto.getItemStock());
-			System.out.println("COUNT            :"+dto.getCount());
-			System.out.println("TOTALPRICE       :"+dto.getTotalPrice());
-			System.out.println("TOTALCOUNT       :"+dto.getTotalCount());
-			System.out.println("USERMASTERID     :"+dto.getUserMasterId());
-			System.out.println("PAY              :"+dto.getPay());
-			System.out.println("------------------");
-			cartList.add(dto);
-		}
 
 
-//		session.put("total_price", intCount * intPrice);
-//		String payment;
-//
-//		if(pay.equals("1")) {
-//
-//			payment = "現金払い";
-//			session.put("pay", payment);
-//		} else {
-//
-//			payment = "クレジットカード";
-//			session.put("pay", payment);
-//		}
-		result=SUCCESS;
-		return result;
+	//		session.put("total_price", intCount * intPrice);
+	//		String payment;
+	//
+	//		if(pay.equals("1")) {
+	//
+	//			payment = "現金払い";
+	//			session.put("pay", payment);
+	//		} else {
+	//
+	//			payment = "クレジットカード";
+	//			session.put("pay", payment);
+	//		}
+			result=SUCCESS;
+			return result;
 	}
 
 
@@ -187,6 +206,18 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 
 	public void setItemPrice(String itemPrice) {
 		this.itemPrice = itemPrice;
+	}
+
+
+
+	public String getCategory() {
+		return category;
+	}
+
+
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 

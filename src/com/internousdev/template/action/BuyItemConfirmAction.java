@@ -1,12 +1,15 @@
 package com.internousdev.template.action;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.template.dao.BuyItemCompleteDAO;
-import com.internousdev.template.dto.CartDTO;
+import com.internousdev.template.dao.BuyItemDAO;
+import com.internousdev.template.dto.ItemInfoTransactionDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
@@ -19,12 +22,14 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 	private String totalCount;
 	private String totalPrice;
 	private String itemStock;
+	private Collection<String> checkList;
 	/**
 	 * アイテム購入個数
 	 */
 	private String count;
 	private String loginUserId;
 	private String userMasterId;
+	private String errorMessage;
 
 	/**
 	 * 支払い方法
@@ -32,6 +37,8 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 	private String pay;
 	public Map<String,Object> session;
 
+//	private List<ItemInfoTransactionDTO> itemInfoTransactionList=new ArrayList<ItemInfoTransactionDTO>();
+	private List<ItemInfoTransactionDTO> itemInfoTransactionList=new ArrayList<ItemInfoTransactionDTO>();
 
 	/**
 	 * 商品購入情報登録メソッド
@@ -39,52 +46,85 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 	 * @author RYUICHI TAGAMI
 	 */
 	public String execute() throws SQLException {
-		String result=ERROR;
-
+		String result = ERROR;
 		System.out.println("------BuyItemConfirmAction");
-		System.out.println("ID               :"+id);
-		System.out.println("ITEMTRANSACTIONID:"+itemTransactionId);
-		System.out.println("ITEMNAME         :"+itemName);
-		System.out.println("ITEMPRICE        :"+itemPrice);
-		System.out.println("ITEMSTOCK        :"+itemStock);
-		System.out.println("COUNT            :"+count);
-		System.out.println("TOTALPRICE       :"+totalPrice);
-		System.out.println("TOTALCOUNT       :"+totalCount);
-		System.out.println("USERMASTERID     :"+userMasterId);
-		System.out.println("PAY              :"+pay);
 
-		String[] idList=id.split(", ", 0);
-		String[] itemTransactionIdList=itemTransactionId.split(", ", 0);
-//		String[] itemNameList=itemName.split(", ",0);
-//		String[] itemPriceList=itemPrice.split(", ", 0);
-//		String[] itemStockList=itemStock.split(", ", 0);
-//		String[] countList=count.split(", ", 0);
-		String[] totalPriceList=totalPrice.split(", ", 0);
-		String[] totalCountList=totalCount.split(", ", 0);
-		String[] userMasterIdList=userMasterId.split(", ", 0);
 
-		int c=0;
-		BuyItemCompleteDAO dao = new BuyItemCompleteDAO();
-		for(int i=0; i<idList.length;i++){
-			String val1=String.valueOf(itemTransactionIdList[i]);
-			String val2=String.valueOf(totalCountList[i]);
-			String val3=String.valueOf(totalPriceList[i]);
-			String val4=String.valueOf(userMasterIdList[i]);
-			String val5=pay;
-			c+=dao.insertUserBuyItemTransaction(val1,val2,val3,val4,val5);
-		}
-		System.out.println(c+"件、商品購入履歴テーブルに追加されました。");
-		if(c>0){
+			System.out.println(id);
+			System.out.println(itemName);
+			System.out.println(itemPrice);
+			System.out.println(itemStock);
+			System.out.println(count);
+			System.out.println(pay);
+			System.out.println(loginUserId);
+			System.out.println(userMasterId);
+
+
+			String[] idList=id.split(", ", 0);
+			String[] itemNameList=itemName.split(", ",0);
+			String[] itemPriceList=itemPrice.split(", ", 0);
+			String[] itemStockList=itemStock.split(", ", 0);
+			String[] countList=count.split(", ", 0);
+
+
+			if(checkList==null){
+				errorMessage="商品が選択されていません。";
+				BuyItemDAO dao = new BuyItemDAO();
+				itemInfoTransactionList = dao.getItemInfoTransactionList();
+				return ERROR;
+			}
+			for(String check : checkList){
+				System.out.println(check);
+			}
+
+			for(String check : checkList){
+				int checkedId=(Integer.parseInt(check))-1;
+				ItemInfoTransactionDTO dto=new ItemInfoTransactionDTO();
+				dto.setId(String.valueOf(idList[checkedId]));
+				dto.setItemTransactionId(String.valueOf(idList[checkedId]));
+				dto.setItemName(String.valueOf(itemNameList[checkedId]));
+				int totalCount=Integer.parseInt(countList[checkedId]);
+				int price=Integer.parseInt(itemPriceList[checkedId]);
+				dto.setItemPrice(String.valueOf(price));
+				dto.setItemStock(String.valueOf(itemStockList[checkedId]));
+				dto.setCount(String.valueOf(countList[checkedId]));
+				int total=price * totalCount;
+				dto.setTotalPrice(String.valueOf(total));
+				dto.setTotalCount(String.valueOf(countList[checkedId]));
+				dto.setUserMasterId(userMasterId);
+				dto.setPay(pay);
+
+				System.out.println("---カート情報["+checkedId+"]---");
+				System.out.println("ID               :"+dto.getId());
+				System.out.println("ITEMTRANSACTIONID:"+dto.getItemTransactionId());
+				System.out.println("ITEMNAME         :"+dto.getItemName());
+				System.out.println("ITEMPRICE        :"+dto.getItemPrice());
+				System.out.println("ITEMSTOCK        :"+dto.getItemStock());
+				System.out.println("COUNT            :"+dto.getCount());
+				System.out.println("TOTALPRICE       :"+dto.getTotalPrice());
+				System.out.println("TOTALCOUNT       :"+dto.getTotalCount());
+				System.out.println("USERMASTERID     :"+dto.getUserMasterId());
+				System.out.println("PAY              :"+dto.getPay());
+				System.out.println("------------------");
+				itemInfoTransactionList.add(dto);
+			}
+
+
+
+	//		session.put("total_price", intCount * intPrice);
+	//		String payment;
+	//
+	//		if(pay.equals("1")) {
+	//
+	//			payment = "現金払い";
+	//			session.put("pay", payment);
+	//		} else {
+	//
+	//			payment = "クレジットカード";
+	//			session.put("pay", payment);
+	//		}
 			result=SUCCESS;
-		}else{
-			result=ERROR;
-		}
-
-
-
-
-
-		return result;
+			return result;
 	}
 
 	public String getId() {
@@ -93,6 +133,26 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+
+
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
+
+
+	public Collection<String> getCheckList() {
+		return checkList;
+	}
+
+	public void setCheckList(Collection<String> checkList) {
+		this.checkList = checkList;
 	}
 
 	public String getItemTransactionId() {
@@ -182,5 +242,15 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
+
+	public List<ItemInfoTransactionDTO> getItemInfoTransactionList() {
+		return itemInfoTransactionList;
+	}
+
+	public void setItemInfoTransactionList(List<ItemInfoTransactionDTO> itemInfoTransactionList) {
+		this.itemInfoTransactionList = itemInfoTransactionList;
+	}
+
+
 
 }

@@ -32,7 +32,8 @@
 			<s:property value="errorMessage"/>
 		</s:if>
 		<div>
-		<s:form action="BuyItemAction">
+		<s:form action="BuyItemConfirmAction">
+			<s:hidden name="userMasterId" value="%{userMasterId}"/>
 			<table>
 				<tr>
 					<td></td>

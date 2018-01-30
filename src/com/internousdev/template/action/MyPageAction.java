@@ -2,7 +2,6 @@ package com.internousdev.template.action;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -19,6 +18,8 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	 * ÉçÉOÉCÉìèÓïÒÇäiî[
 	 */
 	public Map<String, Object> session;
+
+	private String loginUserId;
 
 	private String userMasterId;
 
@@ -37,7 +38,12 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	 */
 	public String execute() throws SQLException {
 		String result=ERROR;
-		userMasterId=String.valueOf((userMasterId.split(", ", 0))[0]);
+
+		if(loginUserId!=null){
+			userMasterId = loginUserId;
+		}else{
+			userMasterId=String.valueOf((userMasterId.split(", ", 0))[0]);
+		}
 		System.out.println("------MyPageAction");
 		System.out.println("USERMASTERID:"+userMasterId);
 		System.out.println("------------------");
@@ -101,6 +107,14 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	}
 
 
+
+	public String getLoginUserId() {
+		return loginUserId;
+	}
+
+	public void setLoginUserId(String loginUserId) {
+		this.loginUserId = loginUserId;
+	}
 
 	public String getUserMasterId() {
 		return userMasterId;

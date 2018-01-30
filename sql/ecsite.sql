@@ -38,25 +38,26 @@ drop table if exists item_info_transaction;
 create table item_info_transaction(
 id int not null primary key auto_increment,
 item_name varchar(30),
+category varchar(255),
 item_price int,
 item_stock int,
 insert_date datetime,
 update_date datetime
 );
-insert into item_info_transaction(item_name, item_price, item_stock,insert_date) values
-("NoteBook", 100, 50,NOW()),
-("Desktop",80, 50,NOW()),
-("Mouse",10, 50,NOW()),
-("Key Board",10, 50,NOW()),
+insert into item_info_transaction(item_name, category, item_price, item_stock,insert_date) values
+("NoteBook", "",100, 50,NOW()),
+("Desktop","",80, 50,NOW()),
+("Mouse","",10, 50,NOW()),
+("Key Board","",10, 50,NOW()),
 
-("大学受験本（初級）",1500,100,NOW()),
-("大学受験本（中級）",1500,100,NOW()),
+("大学受験本（初級）","book",1500,100,NOW()),
+("大学受験本（中級）","book",1500,100,NOW()),
 
-("Tシャツ（ボーダー）",2000,150,NOW()),
-("Tシャツ（緑）",2000,150,NOW()),
+("Tシャツ（ボーダー）","tops",2000,150,NOW()),
+("Tシャツ（緑）","tops",2000,150,NOW()),
 
-("スニーカー",6500,80,NOW()),
-("校内シューズ",4000,80,NOW());
+("スニーカー","shoes",6500,80,NOW()),
+("校内シューズ","shoes",4000,80,NOW());
 
 drop table if exists user_buy_item_transaction;
 create table user_buy_item_transaction(

@@ -33,8 +33,9 @@
 		<div id="top">
 			<p>BuyItemConfirm</p>
 		</div>
+		<h1>こちらの商品でよろしいでしょうか？</h1>
 		<div>
-			<s:form id="form" name="form" action="BuyItemConfirmAction">
+			<s:form id="form" name="form" action="BuyItemCompleteAction">
 			<table>
 				<tr>
 					<td>商品名</td>
@@ -42,7 +43,7 @@
 					<td>購入個数</td>
 					<td>小計</td>
 				</tr>
-				<s:iterator value="cartList">
+				<s:iterator value="itemInfoTransactionList">
 				<tr>
 					<td><s:property value="itemName" /></td>
 					<s:hidden name="itemName" valiue="%{itemName}"/>
@@ -76,7 +77,7 @@
 				</tr>
 				<tr>
 					<td><input type="button" value="戻る" onclick="submitAction('BuyItemAction')" /></td>
-					<td><input type="button" value="完了" onclick="submitAction('BuyItemConfirmAction')" /></td>
+					<td><input type="button" value="完了" onclick="submitAction('BuyItemCompleteAction')" /></td>
 				</tr>
 			</table>
 			</s:form>
