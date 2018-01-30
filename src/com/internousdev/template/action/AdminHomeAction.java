@@ -15,6 +15,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class AdminHomeAction extends ActionSupport implements SessionAware{
 
+	private static final long serialVersionUID = -6802631962229315025L;
 	private String id;
 	private String itemName;
 	private String itemPrice;
@@ -23,17 +24,17 @@ public class AdminHomeAction extends ActionSupport implements SessionAware{
 	private String loginUserId;
 	private String userMasterId;
 	/**
-	 * ã‚¢ã‚¤ãƒ†ãƒ è³¼å…¥å€‹æ•°
+	 * ƒAƒCƒeƒ€w“üŒÂ”
 	 */
 	private String count;
 
 	/**
-	 * æ”¯æ‰•ã„æ–¹æ³•
+	 * x•¥‚¢•û–@
 	 */
 	private String pay;
 
 	/**
-	 * ã‚¢ã‚¤ãƒ†ãƒ æƒ…å ±ã‚’æ ¼ç´
+	 * ƒAƒCƒeƒ€î•ñ‚ğŠi”[
 	 */
 	public Map<String,Object> session;
 
@@ -46,7 +47,7 @@ public class AdminHomeAction extends ActionSupport implements SessionAware{
 	private String errorMessage;
 
 	/**
-	 * å•†å“æƒ…å ±å–å¾—ãƒ¡ã‚½ãƒƒãƒ‰
+	 * ¤•iî•ñæ“¾ƒƒ\ƒbƒh
 	 *
 	 *
 	 */
@@ -64,11 +65,11 @@ public class AdminHomeAction extends ActionSupport implements SessionAware{
 //
 //		if(pay.equals("1")) {
 //
-//			payment = "ç¾é‡‘æ‰•ã„";
+//			payment = "Œ»‹à•¥‚¢";
 //			session.put("pay", payment);
 //		} else {
 //
-//			payment = "ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆã‚«ãƒ¼ãƒ‰";
+//			payment = "ƒNƒŒƒWƒbƒgƒJ[ƒh";
 //			session.put("pay", payment);
 //		}
 
@@ -195,4 +196,3 @@ public class AdminHomeAction extends ActionSupport implements SessionAware{
 	}
 
 	}
-

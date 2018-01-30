@@ -6,7 +6,7 @@ import java.util.Date;
 public class DateUtil {
 
 	/**
-	 * ç¾åœ¨æ™‚åˆ»å–å¾—ãƒ¡ã‚½ãƒƒãƒ‰
+	 * Œ»İæ“¾ƒƒ\ƒbƒh
 	 *
 	 * @return String
 	 */

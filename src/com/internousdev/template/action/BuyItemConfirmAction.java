@@ -10,6 +10,8 @@ import com.internousdev.template.dto.CartDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
+
+	private static final long serialVersionUID = -7787951498734562406L;
 	private String id;
 	private String itemTransactionId;
 	private String itemName;
@@ -18,23 +20,23 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 	private String totalPrice;
 	private String itemStock;
 	/**
-	 * ã‚¢ã‚¤ãƒ†ãƒ è³¼å…¥å€‹æ•°
+	 * ƒAƒCƒeƒ€w“üŒÂ”
 	 */
 	private String count;
 	private String loginUserId;
 	private String userMasterId;
 
 	/**
-	 * æ”¯æ‰•ã„æ–¹æ³•
+	 * x•¥‚¢•û–@
 	 */
 	private String pay;
 	public Map<String,Object> session;
 
 
 	/**
-	 * å•†å“è³¼å…¥æƒ…å ±ç™»éŒ²ãƒ¡ã‚½ãƒƒãƒ‰
+	 * ¤•iw“üî•ñ“o˜^ƒƒ\ƒbƒh
 	 *
-	 * @author internous
+	 * @author RYUICHI TAGAMI
 	 */
 	public String execute() throws SQLException {
 		String result=ERROR;
@@ -71,7 +73,7 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 			String val5=pay;
 			c+=dao.insertUserBuyItemTransaction(val1,val2,val3,val4,val5);
 		}
-		System.out.println(c+"ä»¶ã€å•†å“è³¼å…¥å±¥æ­´ãƒ†ãƒ¼ãƒ–ãƒ«ã«è¿½åŠ ã•ã‚Œã¾ã—ãŸã€‚");
+		System.out.println(c+"ŒA¤•iw“ü—š—ğƒe[ƒuƒ‹‚É’Ç‰Á‚³‚ê‚Ü‚µ‚½B");
 		if(c>0){
 			result=SUCCESS;
 		}else{

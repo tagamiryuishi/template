@@ -8,12 +8,13 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class FavoriteCompleteAction extends ActionSupport implements SessionAware{
 
+	private static final long serialVersionUID = -3559172736249589696L;
 	public Map<String,Object> session;
 
 	/**
-	 * ãŠæ°—ã«å…¥ã‚Šæƒ…å ±ç™»éŒ²å®Œäº†ãƒ¡ã‚½ãƒƒãƒ‰
+	 * ‚¨‹C‚É“ü‚èî•ñ“o˜^Š®—¹ƒƒ\ƒbƒh
 	 *
-	 * @author internous
+	 * @author RYUICHI TAGAMI
 	 */
 	public String execute() {
 

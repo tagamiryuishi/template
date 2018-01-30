@@ -14,6 +14,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class AdminLoginAction extends ActionSupport implements SessionAware{
 
+	private static final long serialVersionUID = -2557817529693712245L;
+
 private String loginUserId;
 
 private String loginPassword;
@@ -32,11 +34,11 @@ public String execute(){
 
 	int count=dao.existsAdminLoginUserInfo(loginUserId,loginPassword);
 	if(count<=0){
-		errorMessage="ãƒ­ã‚°ã‚¤ãƒ³ã«å¤±æ•—ã—ã¾ã—ãŸ";
+		errorMessage="ƒƒOƒCƒ“‚ÉŽ¸”s‚µ‚Ü‚µ‚½";
 		System.out.println("ERROR");
 		return ERROR;
 	}else{
-		//ãƒ­ã‚°ã‚¤ãƒ³å®Ÿè¡Œ
+		//ƒƒOƒCƒ“ŽÀs
 		adminLoginDTO=dao.getAdminLoginUserInfo(loginUserId, loginPassword);
 
 		if(adminLoginDTO.getLoginFlg()){

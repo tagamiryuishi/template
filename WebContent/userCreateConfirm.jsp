@@ -83,6 +83,7 @@
 						</td>
 						<td>
 							<s:property value="loginUserId" escape="false" />
+							<s:hidden name="loginUserId" value="%{loginUserId}"/>
 						</td>
 					</tr>
 					<tr id="box">
@@ -91,6 +92,7 @@
 						</td>
 						<td>
 							<s:property value="loginPassword" escape="false" />
+							<s:hidden name="loginPassword" value="%{loginPassword}"/>
 						</td>
 					</tr>
 					<tr id="box">
@@ -99,6 +101,8 @@
 						</td>
 						<td>
 							<s:property value="userName" escape="false" />
+							<s:hidden name="userName" value="%{userName}"/>
+
 						</td>
 					</tr>
 					<tr>

@@ -15,6 +15,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyItemAction extends ActionSupport implements SessionAware {
 
+	private static final long serialVersionUID = 4366942359566232371L;
 	private String id;
 	private String itemName;
 	private String itemPrice;
@@ -23,17 +24,17 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 	private String loginUserId;
 	private String userMasterId;
 	/**
-	 * ã‚¢ã‚¤ãƒ†ãƒ è³¼å…¥å€‹æ•°
+	 * ƒAƒCƒeƒ€w“üŒÂ”
 	 */
 	private String count;
 
 	/**
-	 * æ”¯æ‰•ã„æ–¹æ³•
+	 * x•¥‚¢•û–@
 	 */
 	private String pay;
 
 	/**
-	 * ã‚¢ã‚¤ãƒ†ãƒ æƒ…å ±ã‚’æ ¼ç´
+	 * ƒAƒCƒeƒ€î•ñ‚ğŠi”[
 	 */
 	public Map<String, Object>  session;
 
@@ -46,9 +47,9 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 	private String errorMessage;
 
 	/**
-	 * å•†å“æƒ…å ±å–å¾—ãƒ¡ã‚½ãƒƒãƒ‰
+	 * ¤•iî•ñæ“¾ƒƒ\ƒbƒh
 	 *
-	 * @author internous
+	 * @author RYUICHI TAGAMI
 	 */
 	public String execute() {
 		String result = ERROR;
@@ -68,7 +69,7 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 
 
 		if(checkList==null){
-			errorMessage="å•†å“ãŒé¸æŠã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚";
+			errorMessage="¤•i‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB";
 			BuyItemDAO buyItemDAO = new BuyItemDAO();
 			itemInfoTransactionList = buyItemDAO.getItemInfoTransactionList();
 			return ERROR;
@@ -94,7 +95,7 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 			dto.setUserMasterId(userMasterId);
 			dto.setPay(pay);
 
-			System.out.println("---ã‚«ãƒ¼ãƒˆæƒ…å ±["+checkedId+"]---");
+			System.out.println("---ƒJ[ƒgî•ñ["+checkedId+"]---");
 			System.out.println("ID               :"+dto.getId());
 			System.out.println("ITEMTRANSACTIONID:"+dto.getItemTransactionId());
 			System.out.println("ITEMNAME         :"+dto.getItemName());
@@ -115,11 +116,11 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 //
 //		if(pay.equals("1")) {
 //
-//			payment = "ç¾é‡‘æ‰•ã„";
+//			payment = "Œ»‹à•¥‚¢";
 //			session.put("pay", payment);
 //		} else {
 //
-//			payment = "ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆã‚«ãƒ¼ãƒ‰";
+//			payment = "ƒNƒŒƒWƒbƒgƒJ[ƒh";
 //			session.put("pay", payment);
 //		}
 		result=SUCCESS;

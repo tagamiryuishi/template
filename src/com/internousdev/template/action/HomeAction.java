@@ -5,8 +5,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class HomeAction extends ActionSupport {
 
 	/**
-	 * ãƒ­ã‚°ã‚¤ãƒ³ãƒœã‚¿ãƒ³æŠ¼ä¸‹æ™‚ã«å®Ÿè¡Œ
-	 * ãƒ­ã‚°ã‚¤ãƒ³ç”»é¢ã¸é·ç§»ã—ã¾ã™ã€‚
+	 * ƒƒOƒCƒ“ƒ{ƒ^ƒ“‰Ÿ‰º‚ÉÀs
+	 * ƒƒOƒCƒ“‰æ–Ê‚Ö‘JˆÚ‚µ‚Ü‚·B
 	 *
 	 * @return SUCCSESS
 	 */

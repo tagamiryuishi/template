@@ -8,10 +8,12 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  *
- * @author internous
+ * @author RYUICHI TAGAMI
  *
  */
 public class UserCreateConfirmAction extends ActionSupport implements SessionAware {
+
+	private static final long serialVersionUID = 4636980259732163580L;
 
 	private String loginUserId;
 
@@ -26,19 +28,20 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	private String errorMessage;
 
 	/**
-	 * å…¥åŠ›æƒ…å ±æ ¼ç´å‡¦ç†
+	 * “ü—Íî•ñŠi”[ˆ—
 	 */
 	public String execute() {
 
 		result = SUCCESS;
 
 		if(!(loginUserId.equals("")) && !(loginPassword.equals("")) && !(userName.equals(""))) {
-			session.put("loginUserId", loginUserId);
-			session.put("loginPassword", loginPassword);
-			session.put("userName", userName);
+//			session.put("loginUserId", loginUserId);
+//			session.put("loginPassword", loginPassword);
+//			session.put("userName", userName);
+			System.out.println("ƒ†[ƒU[“o˜^---->“ü—Íƒ`ƒFƒbƒNOK");
 		} else {
-
-			setErrorMessage("æœªå…¥åŠ›ã®é …ç›®ãŒã‚ã‚Šã¾ã™ã€‚");
+			System.out.println("ƒ†[ƒU[“o˜^---->“ü—Íƒ`ƒFƒbƒNNG");
+			setErrorMessage("–¢“ü—Í‚Ì€–Ú‚ª‚ ‚è‚Ü‚·B");
 			result = ERROR;
 		}
 

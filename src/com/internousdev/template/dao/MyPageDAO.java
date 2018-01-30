@@ -12,7 +12,7 @@ import com.internousdev.template.util.DBConnector;
 public class MyPageDAO {
 
 	/**
-	 * å•†å“å±¥æ­´å–å¾—
+	 * ¤•i—š—ğæ“¾
 	 *
 	 * @param item_transaction_id
 	 * @param user_master_id
@@ -55,7 +55,7 @@ public class MyPageDAO {
 
 
 	/**
-	 * å•†å“è³¼å…¥å±¥æ­´ãƒªã‚¹ãƒˆå–å¾—
+	 * ¤•iw“ü—š—ğƒŠƒXƒgæ“¾
 	 *
 	 * @param user_master_id
 	 * @return
@@ -95,7 +95,7 @@ public class MyPageDAO {
 	}
 
 	/**
-	 * å•†å“è³¼å…¥å±¥æ­´ãƒªã‚¹ãƒˆå‰Šé™¤
+	 * ¤•iw“ü—š—ğƒŠƒXƒgíœ
 	 *
 	 * @param user_master_id
 	 * @return
@@ -120,7 +120,7 @@ public class MyPageDAO {
 	}
 
 	/**
-	 * å•†å“å±¥æ­´å‰Šé™¤
+	 * ¤•i—š—ğíœ
 	 *
 	 * @param item_transaction_id
 	 * @param user_master_id

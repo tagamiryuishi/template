@@ -13,25 +13,27 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class MyPageAction extends ActionSupport implements SessionAware{
 
+	private static final long serialVersionUID = 6438949214620879001L;
+
 	/**
-	 * ãƒ­ã‚°ã‚¤ãƒ³æƒ…å ±ã‚’æ ¼ç´
+	 * ƒƒOƒCƒ“î•ñ‚ğŠi”[
 	 */
 	public Map<String, Object> session;
 
 	private String userMasterId;
 
-	 // å‰Šé™¤ãƒ•ãƒ©ã‚°
+	 // íœƒtƒ‰ƒO
 	String deleteFlg;
 
 	private String message;
 
-//	 // ãƒã‚¤ãƒšãƒ¼ã‚¸æƒ…å ±æ ¼ç´DTO
+//	 // ƒ}ƒCƒy[ƒWî•ñŠi”[DTO
 	private ArrayList<MyPageDTO> myPageList = new ArrayList<MyPageDTO>();
 
 	/**
-	 * å•†å“å±¥æ­´å–å¾—ãƒ¡ã‚½ãƒƒãƒ‰
+	 * ¤•i—š—ğæ“¾ƒƒ\ƒbƒh
 	 *
-	 * @author internous
+	 * @author RYUICHI TAGAMI
 	 */
 	public String execute() throws SQLException {
 		String result=ERROR;
@@ -39,17 +41,17 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		System.out.println("------MyPageAction");
 		System.out.println("USERMASTERID:"+userMasterId);
 		System.out.println("------------------");
-//		// ãƒã‚¤ãƒšãƒ¼ã‚¸æƒ…å ±å–å¾—DAO
+//		// ƒ}ƒCƒy[ƒWî•ñæ“¾DAO
 		MyPageDAO myPageDAO = new MyPageDAO();
 		if(userMasterId==null){
-			message="ãƒ­ã‚°ã‚¤ãƒ³ã—ã¦ã„ã¾ã›ã‚“ã€‚";
+			message="ƒƒOƒCƒ“‚µ‚Ä‚¢‚Ü‚¹‚ñB";
 			return ERROR;
 		}
 //		if (!session.containsKey("id")) {
 //			return ERROR;
 //		}
 //
-//		// å•†å“å±¥æ­´ã‚’å‰Šé™¤ã—ãªã„å ´åˆ
+//		// ¤•i—š—ğ‚ğíœ‚µ‚È‚¢ê‡
 		if(deleteFlg == null) {
 			myPageList = myPageDAO.getMyPageList(userMasterId);
 //
@@ -57,7 +59,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 //			if (!(iterator.hasNext())) {
 //				myPageList = null;
 //			}
-//		// å•†å“å±¥æ­´ã‚’å‰Šé™¤ã™ã‚‹å ´åˆ
+//		// ¤•i—š—ğ‚ğíœ‚·‚éê‡
 		} else if(deleteFlg.equals("1")) {
 			delete();
 		}
@@ -67,7 +69,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * å•†å“å±¥æ­´å‰Šé™¤
+	 * ¤•i—š—ğíœ
 	 *
 	 * @throws SQLException
 	 */
@@ -79,20 +81,20 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		System.out.println("------------------");
 //		String item_transaction_id = session.get("id").toString();
 //		String user_master_id = session.get("login_user_id").toString();
-//		// ãƒã‚¤ãƒšãƒ¼ã‚¸æƒ…å ±å–å¾—DAO
+//		// ƒ}ƒCƒy[ƒWî•ñæ“¾DAO
 		MyPageDAO myPageDAO = new MyPageDAO();
 		if(userMasterId==null){
-			message="ãƒ­ã‚°ã‚¤ãƒ³ã—ã¦ã„ã¾ã›ã‚“ã€‚";
+			message="ƒƒOƒCƒ“‚µ‚Ä‚¢‚Ü‚¹‚ñB";
 			return ERROR;
 		}
 		int res = myPageDAO.deleteMyPageList(userMasterId);
 
 		if(res > 0) {
 			myPageList = null;
-			message="å•†å“æƒ…å ±ã‚’æ­£ã—ãå‰Šé™¤ã—ã¾ã—ãŸã€‚";
+			message="¤•iî•ñ‚ğ³‚µ‚­íœ‚µ‚Ü‚µ‚½B";
 			result=SUCCESS;
 		} else if(res == 0) {
-			message="å•†å“æƒ…å ±ã®å‰Šé™¤ã«å¤±æ•—ã—ã¾ã—ãŸã€‚";
+			message="¤•iî•ñ‚Ìíœ‚É¸”s‚µ‚Ü‚µ‚½B";
 			result=ERROR;
 		}
 		return result;

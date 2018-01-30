@@ -13,6 +13,21 @@ pageEncoding="UTF-8" %>
 <meta name="keywords" content="" />
 <meta charset="utf-8">
 <link rel="stylesheet"href="./css/buyItem.css">
+
+<script type="text/javascript">
+    function goGoAdminItemAddAction(){
+        document.getElementById('form').action="GoAdminItemAddAction";
+    }
+
+    function goAdminItemUpdateAction(){
+        document.getElementById('form').action="AdminItemUpdateAction";
+    }
+
+    function goAdminItemDeleteAction(){
+        document.getElementById('form').action="AdminItemDeleteAction";
+    }
+</script>
+
 <title>管理者画面</title>
 </head>
 <body>
@@ -22,14 +37,14 @@ pageEncoding="UTF-8" %>
 </div>
 <div id="main">
 <div id="top">
-	<p>ログイン管理者画面</p>
+	<p>管理者ホーム画面</p>
 </div>
 <br>
 <s:if test="errorMessage!=null">
 	<s:property value="errorMessage"/>
 	</s:if>
 	<div>
-	<s:form action="BuyItemAction">
+	<s:form action="BuyItemAction" id="form" name="form" >
 		<table>
 			<tr>
 					<td></td>
@@ -57,9 +72,9 @@ pageEncoding="UTF-8" %>
 				</s:iterator>
 			</table>
 			<br>
-				<s:submit value="追加"/>
-				<s:submit value="更新"/>
-				<s:submit value="削除"/>
+				<s:submit value="追加" onclick="goGoAdminItemAddAction();" />
+				<s:submit value="更新" onclick="goAdminItemUpdateAction();" />
+				<s:submit value="削除" onclick="goAdminItemDeleteAction();" />
 		</s:form>
 		<br>
 			<div>

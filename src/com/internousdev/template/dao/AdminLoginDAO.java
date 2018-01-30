@@ -59,4 +59,3 @@ public AdminLoginDTO getAdminLoginUserInfo(String loginUserId, String loginPassw
 	return adminLoginDTO;
 			}
 		}
-

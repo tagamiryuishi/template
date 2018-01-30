@@ -14,7 +14,7 @@ public class AdminBuyItemDAO{
 
 
 	/**
-	 * å•†å“æƒ…å ±å–å¾—ãƒ¡ã‚½ãƒƒãƒ‰
+	 * ¤•iî•ñŽæ“¾ƒƒ\ƒbƒh
 	 */
 	public AdminItemInfoTransactionDTO getBuyItemInfo(){
 		DBConnector db=new DBConnector();
@@ -65,4 +65,3 @@ public class AdminBuyItemDAO{
 		return itemInfoTransactionList;
 	}
 }
-

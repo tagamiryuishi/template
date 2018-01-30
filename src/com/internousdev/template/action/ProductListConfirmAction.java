@@ -8,6 +8,8 @@ import com.internousdev.template.dto.ProductListConfirmDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ProductListConfirmAction extends ActionSupport {
+
+	private static final long serialVersionUID = 1687915451184173510L;
 	private String id;
 	private String productName;
 	private String productDescription;
@@ -50,7 +52,7 @@ public class ProductListConfirmAction extends ActionSupport {
 		}
 
 		for(int i=0;i<productDescriptionList.length;i++){
-			System.out.println("------------------- å•†å“ãƒªã‚¹ãƒˆ["+i+"]");
+			System.out.println("------------------- ¤•iƒŠƒXƒg["+i+"]");
 			System.out.println(productListConfirmList.get(i).getId());
 			System.out.println(productListConfirmList.get(i).getProductName());
 			System.out.println(productListConfirmList.get(i).getProductDescription());
@@ -121,5 +123,5 @@ public class ProductListConfirmAction extends ActionSupport {
 	}
 
 
-	
+
 }

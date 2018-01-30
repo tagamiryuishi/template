@@ -49,14 +49,14 @@ insert into item_info_transaction(item_name, item_price, item_stock,insert_date)
 ("Mouse",10, 50,NOW()),
 ("Key Board",10, 50,NOW()),
 
-("å¤§å­¦å—é¨“æœ¬ï¼ˆåˆç´šï¼‰",1500,100,NOW()),
-("å¤§å­¦å—é¨“æœ¬ï¼ˆä¸­ç´šï¼‰",1500,100,NOW()),
+("‘åŠwóŒ±–{i‰‹‰j",1500,100,NOW()),
+("‘åŠwóŒ±–{i’†‹‰j",1500,100,NOW()),
 
-("Tã‚·ãƒ£ãƒ„ï¼ˆãƒœãƒ¼ãƒ€ãƒ¼ï¼‰",2000,150,NOW()),
-("Tã‚·ãƒ£ãƒ„ï¼ˆç·‘ï¼‰",2000,150,NOW()),
+("TƒVƒƒƒciƒ{[ƒ_[j",2000,150,NOW()),
+("TƒVƒƒƒci—Îj",2000,150,NOW()),
 
-("ã‚¹ãƒ‹ãƒ¼ã‚«ãƒ¼",6500,80,NOW()),
-("æ ¡å†…ã‚·ãƒ¥ãƒ¼ã‚º",4000,80,NOW());
+("ƒXƒj[ƒJ[",6500,80,NOW()),
+("Z“àƒVƒ…[ƒY",4000,80,NOW());
 
 drop table if exists user_buy_item_transaction;
 create table user_buy_item_transaction(
@@ -81,20 +81,20 @@ image_file_path varchar(255)
 );
 
 insert into product_list(id,product_name,product_description,total_price,image_file_path) values
-(1,"é«˜æ ¡å—é¨“æœ¬ï¼ˆåˆç´šï¼‰","é«˜æ ¡å—é¨“ã‚’ç›®æŒ‡ã™æ–¹ï¼ˆåˆç´šã‚³ãƒ¼ã‚¹ï¼‰","1500","image/highschool.syokyu.png"),
-(2,"é«˜æ ¡å—é¨“æœ¬ï¼ˆä¸­ç´šï¼‰","é«˜æ ¡å—é¨“ã‚’ç›®æŒ‡ã™æ–¹ï¼ˆä¸­ç´šã‚³ãƒ¼ã‚¹ï¼‰","1500","image/highschool.tyukyu.png"),
-(3,"é«˜æ ¡å—é¨“æœ¬ï¼ˆä¸Šç´šï¼‰","é«˜æ ¡å—é¨“ã‚’ç›®æŒ‡ã™æ–¹ï¼ˆä¸Šç´šã‚³ãƒ¼ã‚¹ï¼‰","1500","image/highschool.zyokyu.png"),
-(4,"å¤§å­¦å—é¨“æœ¬ï¼ˆåˆç´šï¼‰","å¤§å­¦å—é¨“ã‚’ç›®æŒ‡ã™æ–¹ï¼ˆåˆç´šã‚³ãƒ¼ã‚¹ï¼‰","1500","image/university.syokyu.png"),
-(5,"å¤§å­¦å—é¨“æœ¬ï¼ˆä¸­ç´šï¼‰","å¤§å­¦å—é¨“ã‚’ç›®æŒ‡ã™æ–¹ï¼ˆä¸­ç´šã‚³ãƒ¼ã‚¹ï¼‰","1500","image/university.tyukyu.png"),
-(6,"å¤§å­¦å—é¨“æœ¬ï¼ˆä¸Šç´šï¼‰","å¤§å­¦å—é¨“ã‚’ç›®æŒ‡ã™æ–¹ï¼ˆä¸Šç´šã‚³ãƒ¼ã‚¹ï¼‰","1500","image/university.zyokyu.jpg"),
+(1,"‚ZóŒ±–{i‰‹‰j","‚ZóŒ±‚ğ–Úw‚·•ûi‰‹‰ƒR[ƒXj","1500","image/highschool.syokyu.png"),
+(2,"‚ZóŒ±–{i’†‹‰j","‚ZóŒ±‚ğ–Úw‚·•ûi’†‹‰ƒR[ƒXj","1500","image/highschool.tyukyu.png"),
+(3,"‚ZóŒ±–{iã‹‰j","‚ZóŒ±‚ğ–Úw‚·•ûiã‹‰ƒR[ƒXj","1500","image/highschool.zyokyu.png"),
+(4,"‘åŠwóŒ±–{i‰‹‰j","‘åŠwóŒ±‚ğ–Úw‚·•ûi‰‹‰ƒR[ƒXj","1500","image/university.syokyu.png"),
+(5,"‘åŠwóŒ±–{i’†‹‰j","‘åŠwóŒ±‚ğ–Úw‚·•ûi’†‹‰ƒR[ƒXj","1500","image/university.tyukyu.png"),
+(6,"‘åŠwóŒ±–{iã‹‰j","‘åŠwóŒ±‚ğ–Úw‚·•ûiã‹‰ƒR[ƒXj","1500","image/university.zyokyu.jpg"),
 
-(7,"Tã‚·ãƒ£ãƒ„ï¼ˆé»’ï¼‰","é»’Tã‚·ãƒ£ãƒ„ï¼ˆMã‚µã‚¤ã‚ºï¼‰","2000","image/shirt.black.jpg"),
-(8,"Tã‚·ãƒ£ãƒ„ï¼ˆé’ï¼‰","é’Tã‚·ãƒ£ãƒ„ï¼ˆSã‚µã‚¤ã‚ºï¼‰","1800","image/shirt.blue.jpg"),
-(9,"Tã‚·ãƒ£ãƒ„ï¼ˆãƒœãƒ¼ãƒ€ãƒ¼ï¼‰","ãƒœãƒ¼ãƒ€ãƒ¼Tã‚·ãƒ£ãƒ„ï¼ˆMã‚µã‚¤ã‚ºï¼‰","2000","image/shirt.border.jpg"),
-(10,"Tã‚·ãƒ£ãƒ„ï¼ˆç·‘ï¼‰","ç·‘Tã‚·ãƒ£ãƒ„ï¼ˆLã‚µã‚¤ã‚ºï¼‰","2000","image/shirt.green.jpg"),
-(11,"Tã‚·ãƒ£ãƒ„ï¼ˆé»„ï¼‰","é»„è‰²Tã‚·ãƒ£ãƒ„ï¼ˆMã‚µã‚¤ã‚ºï¼‰","2000","image/shirt.yellow.jpg"),
+(7,"TƒVƒƒƒci•j","•TƒVƒƒƒciMƒTƒCƒYj","2000","image/shirt.black.jpg"),
+(8,"TƒVƒƒƒciÂj","ÂTƒVƒƒƒciSƒTƒCƒYj","1800","image/shirt.blue.jpg"),
+(9,"TƒVƒƒƒciƒ{[ƒ_[j","ƒ{[ƒ_[TƒVƒƒƒciMƒTƒCƒYj","2000","image/shirt.border.jpg"),
+(10,"TƒVƒƒƒci—Îj","—ÎTƒVƒƒƒciLƒTƒCƒYj","2000","image/shirt.green.jpg"),
+(11,"TƒVƒƒƒci‰©j","‰©FTƒVƒƒƒciMƒTƒCƒYj","2000","image/shirt.yellow.jpg"),
 
-(12,"ãƒ©ãƒ³ãƒ‹ãƒ³ã‚°ã‚·ãƒ¥ãƒ¼ã‚º","ã‚µã‚¤ã‚ºï¼ˆ26.5cmï¼‰","5000","image/ranning.jpg"),
-(13,"ã‚¹ãƒ‹ãƒ¼ã‚«ãƒ¼","ã‚µã‚¤ã‚ºï¼ˆ27.5cmï¼‰","6500","image/sotobaki.jpg"),
-(14,"ä½“è‚²é¤¨ã‚·ãƒ¥ãƒ¼ã‚º","ã‚µã‚¤ã‚ºï¼ˆ2ï¼•.5cmï¼‰","3500","image/taiikukan.jpg"),
-(15,"æ ¡å†…ã‚·ãƒ¥ãƒ¼ã‚º","ã‚µã‚¤ã‚ºï¼ˆ27.0cmï¼‰","4000","image/uwabaki.jpg");
+(12,"ƒ‰ƒ“ƒjƒ“ƒOƒVƒ…[ƒY","ƒTƒCƒYi26.5cmj","5000","image/ranning.jpg"),
+(13,"ƒXƒj[ƒJ[","ƒTƒCƒYi27.5cmj","6500","image/sotobaki.jpg"),
+(14,"‘ÌˆçŠÙƒVƒ…[ƒY","ƒTƒCƒYi2‚T.5cmj","3500","image/taiikukan.jpg"),
+(15,"Z“àƒVƒ…[ƒY","ƒTƒCƒYi27.0cmj","4000","image/uwabaki.jpg");

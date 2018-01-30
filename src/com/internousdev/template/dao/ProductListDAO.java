@@ -14,7 +14,7 @@ public class ProductListDAO {
 	public ArrayList<ProductListDTO> productList = new ArrayList<ProductListDTO>();
 
 	/**
-	 * Product_ListDTOã®ä¸­èº«ã‚’å…¨ã¦å–å¾—
+	 * Product_ListDTO‚Ì’†g‚ğ‘S‚Äæ“¾
 	 * @return productListDTOList
 	 */
 	public ArrayList<ProductListDTO> selectAll() {

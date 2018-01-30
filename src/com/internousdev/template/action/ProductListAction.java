@@ -7,8 +7,10 @@ import com.internousdev.template.dto.ProductListDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ProductListAction extends ActionSupport {
+
+	private static final long serialVersionUID = -8007906305380800423L;
 	/**
-	 * å•†å“ä¸€è¦§ãƒªã‚¹ãƒˆ
+	 * ¤•iˆê——ƒŠƒXƒg
 	 */
 	private ArrayList<ProductListDTO> productListDTOList = new ArrayList<ProductListDTO>();
 
@@ -17,7 +19,7 @@ public class ProductListAction extends ActionSupport {
 
 	public String execute() {
 		String result = ERROR;
-		// å•†å“æƒ…å ±
+		// ¤•iî•ñ
 		ProductListDAO productListDAO = new ProductListDAO();
 		productListDTOList = productListDAO.selectAll();
 
@@ -36,7 +38,7 @@ public class ProductListAction extends ActionSupport {
 	}
 
 	/**
-	 * @param productListDTOL ã‚»ãƒƒãƒˆã™ã‚‹
+	 * @param productListDTOL ƒZƒbƒg‚·‚é
 	 */
 	public void setProductListDTOList(ArrayList<ProductListDTO> productListDTOList) {
 		this.productListDTOList = productListDTOList;

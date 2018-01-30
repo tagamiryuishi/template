@@ -11,7 +11,7 @@ public class BuyItemCompleteDAO {
 
 
 	/**
-	 * å•†å“è³¼å…¥æƒ…å ±ç™»éŒ²ãƒ¡ã‚½ãƒƒãƒ‰
+	 * ¤•iw“üî•ñ“o˜^ƒƒ\ƒbƒh
 	 *
 	 * @param item_transaction_id
 	 * @param user_master_id

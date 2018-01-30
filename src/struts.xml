@@ -22,6 +22,24 @@
 		     <result name="error">adminHome.jsp</result>
 		     </action>
 
+		<!-- GoAdminItemAddAction -->
+		<action name="GoAdminItemAddAction" class="com.internousdev.template.action.GoAdminItemAddAction" method="execute">
+		     <result name="success">adminItemAdd.jsp</result>
+		     <result name="error">adminHome.jsp</result>
+		     </action>
+
+		<!-- AdminItemAddAction -->
+		<action name="AdminItemAddAction" class="com.internousdev.template.action.AdminItemAddAction" method="execute">
+		     <result name="success">adminItemAddConfirm.jsp</result>
+		     <result name="error">adminItemAdd.jsp</result>
+		     </action>
+
+		<!-- AdminItemAddConfirmAction -->
+		<action name="AdminItemAddConfirmAction" class="com.internousdev.template.action.AdminItemAddConfirmAction" method="execute">
+		     <result name="success">adminItemAddComplete.jsp</result>
+		     <result name="error">adminItemAddConfirm.jsp</result>
+		     </action>
+
 		<!-- HomeAction -->
 		<action name="HomeAction" class="com.internousdev.template.action.HomeAction" method="execute">
 			<result name="success">login.jsp</result>

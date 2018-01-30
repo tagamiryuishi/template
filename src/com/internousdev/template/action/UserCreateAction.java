@@ -4,8 +4,10 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class UserCreateAction extends ActionSupport {
 
+	private static final long serialVersionUID = 2247563687766838306L;
+
 	/**
-	 * ãƒ¦ãƒ¼ã‚¶ãƒ¼æƒ…å ±ç™»éŒ²ç”»é¢é·ç§»å‡¦ç†
+	 * ƒ†[ƒU[î•ñ“o˜^‰æ–Ê‘JˆÚˆ—
 	 */
 	public String execute() {
 		return SUCCESS;

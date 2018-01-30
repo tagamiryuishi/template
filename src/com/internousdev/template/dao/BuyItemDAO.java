@@ -12,7 +12,7 @@ import com.internousdev.template.util.DBConnector;
 public class BuyItemDAO {
 
 	/**
-	 * å•†å“æƒ…å ±å–å¾—ãƒ¡ã‚½ãƒƒãƒ‰
+	 * ¤•iî•ñŽæ“¾ƒƒ\ƒbƒh
 	 *
 	 * @return BuyItemDTO
 	 */

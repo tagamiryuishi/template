@@ -31,7 +31,7 @@ public class LoginDAO {
 	}
 
 	/**
-	 * ãƒ­ã‚°ã‚¤ãƒ³ãƒ¦ãƒ¼ã‚¶æƒ…å ±å–å¾—ãƒ¡ã‚½ãƒƒãƒ‰
+	 * ƒƒOƒCƒ“ƒ†[ƒUî•ñŽæ“¾ƒƒ\ƒbƒh
 	 *
 	 * @param loginUserId
 	 * @param loginPassword

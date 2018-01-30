@@ -3,27 +3,27 @@ package com.internousdev.template.dto;
 public class ProductListDTO {
 
 	/**
-	 * å•†å“ID
+	 * ¤•iID
 	 */
 	private String id;
 
 	/**
-	 * å•†å“å
+	 * ¤•i–¼
 	 */
 	private String productName;
 
 	/**
-	 * å•†å“è©³ç´°
+	 * ¤•iÚ×
 	 */
 	private String productDescription;
 
 	/**
-	 * å€¤æ®µ
+	 * ’l’i
 	 */
 	private int totalPrice;
 
 	/**
-	 * ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹
+	 * ‰æ‘œƒtƒ@ƒCƒ‹‚ÌƒpƒX
 	 */
 	private String imageFilePath;
 

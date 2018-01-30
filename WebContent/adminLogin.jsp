@@ -35,7 +35,7 @@ pageEncoding="UTF-8" %>
 パスワード:<s:password name="loginPassword" label="パスワード"/><br>
 <s:submit value="ログイン" />
 </s:form>
-<p>前画面に戻る場合は<a href='<s:url action="LoginAction" />'>こちら</a></p>
+<p>前画面に戻る場合は<a href="./login.jsp">こちら</a></p>
 <br/>
 <div>
 </div>

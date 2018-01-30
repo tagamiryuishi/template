@@ -3,6 +3,8 @@ package com.internousdev.template.action;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ProductListCompleteAction extends ActionSupport{
+
+	private static final long serialVersionUID = 7014436694781507271L;
 	private String id;
 	private String productName;
 	private String productDescription;

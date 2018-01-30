@@ -13,11 +13,11 @@ import com.internousdev.template.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * ãƒ­ã‚°ã‚¤ãƒ³èªè¨¼å‡¦ç†
- * Login.jspã‹ã‚‰ãƒ­ã‚°ã‚¤ãƒ³IDã€ãƒ­ã‚°ã‚¤ãƒ³ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’å—ã‘å–ã‚Š
- * DBã¸å•ã„åˆã‚ã›ã‚’è¡Œã„ã¾ã™ã€‚
+ * ƒƒOƒCƒ“”FØˆ—
+ * Login.jsp‚©‚çƒƒOƒCƒ“IDAƒƒOƒCƒ“ƒpƒXƒ[ƒh‚ğó‚¯æ‚è
+ * DB‚Ö–â‚¢‡‚í‚¹‚ğs‚¢‚Ü‚·B
  *
- * @author internous
+ * @author RYUICHI TAGAMI
  * @param loginUserId
  * @param loginPassword
  *
@@ -25,27 +25,29 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class LoginAction extends ActionSupport implements SessionAware{
 
+	private static final long serialVersionUID = -5108926378303062892L;
+
 	/**
-	 * ãƒ­ã‚°ã‚¤ãƒ³ID
+	 * ƒƒOƒCƒ“ID
 	 */
 	private String loginUserId;
 
 	/**
-	 * ãƒ­ã‚°ã‚¤ãƒ³ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰
+	 * ƒƒOƒCƒ“ƒpƒXƒ[ƒh
 	 */
 	private String loginPassword;
 
 	private String errorMessage;
 
 	/**
-	 * ãƒ­ã‚°ã‚¤ãƒ³æƒ…å ±ã‚’æ ¼ç´
+	 * ƒƒOƒCƒ“î•ñ‚ğŠi”[
 	 */
 	private Map<String, Object> session;
 
 	private List<ItemInfoTransactionDTO> itemInfoTransactionList = new ArrayList<ItemInfoTransactionDTO>();
 
 	/**
-	 * å®Ÿè¡Œãƒ¡ã‚½ãƒƒãƒ‰
+	 * Àsƒƒ\ƒbƒh
 	 */
 	public String execute() {
 		String result = ERROR;
@@ -54,20 +56,20 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 		int count=dao.existsLoginUserInfo(loginUserId, loginPassword);
 		if(count<=0){
-			errorMessage="ãƒ­ã‚°ã‚¤ãƒ³ã«å¤±æ•—ã—ã¾ã—ãŸã€‚";
+			errorMessage="ƒƒOƒCƒ“‚É¸”s‚µ‚Ü‚µ‚½B";
 			return ERROR;
 		}else{
-			// ãƒ­ã‚°ã‚¤ãƒ³å®Ÿè¡Œ
+			// ƒƒOƒCƒ“Às
 			loginDTO = dao.getLoginUserInfo(loginUserId, loginPassword);
 //			session.put("loginUser", loginDTO);
 
-			// ãƒ­ã‚°ã‚¤ãƒ³ã•ã‚Œã¦ã„ã‚Œã°ã€LoginFlgã¯true
+			// ƒƒOƒCƒ“‚³‚ê‚Ä‚¢‚ê‚ÎALoginFlg‚Ítrue
 			if(loginDTO.getLoginFlg()){
 
-//		// ãƒ­ã‚°ã‚¤ãƒ³æƒ…å ±ã‚’æ¯”è¼ƒ
+//		// ƒƒOƒCƒ“î•ñ‚ğ”äŠr
 //			if(((LoginDTO) session.get("loginUser")).getLoginFlg()) {
 
-				// ãƒ­ã‚°ã‚¤ãƒ³ãƒ•ãƒ©ã‚°ãŒtrueãªã‚‰ã°ã€å•†å“æƒ…å ±ã‚’å–å¾—ã™ã‚‹
+				// ƒƒOƒCƒ“ƒtƒ‰ƒO‚ªtrue‚È‚ç‚ÎA¤•iî•ñ‚ğæ“¾‚·‚é
 				BuyItemDAO buyItemDAO = new BuyItemDAO();
 				itemInfoTransactionList = buyItemDAO.getItemInfoTransactionList();
 

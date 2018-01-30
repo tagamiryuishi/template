@@ -8,12 +8,13 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyItemCompleteAction extends ActionSupport implements SessionAware{
 
+	private static final long serialVersionUID = -8314276024685310415L;
 	public Map<String,Object> session;
 
 	/**
-	 * å•†å“è³¼å…¥æƒ…å ±ç™»éŒ²å®Œäº†ãƒ¡ã‚½ãƒƒãƒ‰
+	 * ¤•iw“üî•ñ“o˜^Š®—¹ƒƒ\ƒbƒh
 	 *
-	 * @author internous
+	 * @author RYUICHI TAGAMI
 	 */
 	public String execute() {
 
