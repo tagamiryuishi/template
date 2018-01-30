@@ -77,36 +77,40 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 				System.out.println(check);
 			}
 
-			for(String check : checkList){
-				int checkedId=(Integer.parseInt(check))-1;
-				ItemInfoTransactionDTO dto=new ItemInfoTransactionDTO();
-				dto.setId(String.valueOf(idList[checkedId]));
-				dto.setItemTransactionId(String.valueOf(idList[checkedId]));
-				dto.setItemName(String.valueOf(itemNameList[checkedId]));
-				int totalCount=Integer.parseInt(countList[checkedId]);
-				int price=Integer.parseInt(itemPriceList[checkedId]);
-				dto.setItemPrice(String.valueOf(price));
-				dto.setItemStock(String.valueOf(itemStockList[checkedId]));
-				dto.setCount(String.valueOf(countList[checkedId]));
-				int total=price * totalCount;
-				dto.setTotalPrice(String.valueOf(total));
-				dto.setTotalCount(String.valueOf(countList[checkedId]));
-				dto.setUserMasterId(userMasterId);
-				dto.setPay(pay);
 
-				System.out.println("---カート情報["+checkedId+"]---");
-				System.out.println("ID               :"+dto.getId());
-				System.out.println("ITEMTRANSACTIONID:"+dto.getItemTransactionId());
-				System.out.println("ITEMNAME         :"+dto.getItemName());
-				System.out.println("ITEMPRICE        :"+dto.getItemPrice());
-				System.out.println("ITEMSTOCK        :"+dto.getItemStock());
-				System.out.println("COUNT            :"+dto.getCount());
-				System.out.println("TOTALPRICE       :"+dto.getTotalPrice());
-				System.out.println("TOTALCOUNT       :"+dto.getTotalCount());
-				System.out.println("USERMASTERID     :"+dto.getUserMasterId());
-				System.out.println("PAY              :"+dto.getPay());
-				System.out.println("------------------");
-				itemInfoTransactionList.add(dto);
+			for(int i=0;i<idList.length;i++){
+
+				for(String check : checkList){
+					int checkedId=(Integer.parseInt(check))-1;
+					ItemInfoTransactionDTO dto=new ItemInfoTransactionDTO();
+					dto.setId(String.valueOf(idList[i]));
+					dto.setItemTransactionId(String.valueOf(idList[i]));
+					dto.setItemName(String.valueOf(itemNameList[i]));
+					int totalCount=Integer.parseInt(countList[i]);
+					int price=Integer.parseInt(itemPriceList[i]);
+					dto.setItemPrice(String.valueOf(price));
+					dto.setItemStock(String.valueOf(itemStockList[i]));
+					dto.setCount(String.valueOf(countList[i]));
+					int total=price * totalCount;
+					dto.setTotalPrice(String.valueOf(total));
+					dto.setTotalCount(String.valueOf(countList[i]));
+					dto.setUserMasterId(userMasterId);
+					dto.setPay(pay);
+
+					System.out.println("---カート情報["+i+"]---");
+					System.out.println("ID               :"+dto.getId());
+					System.out.println("ITEMTRANSACTIONID:"+dto.getItemTransactionId());
+					System.out.println("ITEMNAME         :"+dto.getItemName());
+					System.out.println("ITEMPRICE        :"+dto.getItemPrice());
+					System.out.println("ITEMSTOCK        :"+dto.getItemStock());
+					System.out.println("COUNT            :"+dto.getCount());
+					System.out.println("TOTALPRICE       :"+dto.getTotalPrice());
+					System.out.println("TOTALCOUNT       :"+dto.getTotalCount());
+					System.out.println("USERMASTERID     :"+dto.getUserMasterId());
+					System.out.println("PAY              :"+dto.getPay());
+					System.out.println("------------------");
+					itemInfoTransactionList.add(dto);
+				}
 			}
 
 

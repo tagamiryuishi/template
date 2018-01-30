@@ -1,12 +1,16 @@
 package com.internousdev.template.action;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.template.dao.BuyItemCompleteDAO;
+import com.internousdev.template.dao.BuyItemDAO;
+import com.internousdev.template.dto.ItemInfoTransactionDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyItemCompleteAction extends ActionSupport implements SessionAware{
@@ -34,6 +38,7 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 	private String pay;
 	public Map<String,Object> session;
 
+	private List<ItemInfoTransactionDTO> itemInfoTransactionList=new ArrayList<ItemInfoTransactionDTO>();
 	/**
 	 * ¤•iw“üî•ñ“o˜^Š®—¹ƒƒ\ƒbƒh
 	 *
@@ -41,28 +46,94 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 	 */
 	public String execute() {
 
-		String result = SUCCESS;
+		String result = ERROR;
 		System.out.println("BuyItemCompleteAction-----------");
 
+		if(userMasterId.indexOf(",") > 0){
 			userMasterId=String.valueOf((userMasterId.split(", ", 0))[0]);
+		}
 			loginUserId=userMasterId;
 
 		System.out.println(userMasterId);
 		System.out.println(loginUserId);
-		System.out.println("--------------------------------");
+		System.out.println(itemTransactionId);
+
+
 
 		BuyItemCompleteDAO dao = new BuyItemCompleteDAO();
-		try {
-			int c = dao.insertUserBuyItemTransaction(itemTransactionId, totalPrice, totalCount, userMasterId, pay);
-			if(c>0){
-				result=SUCCESS;
-			}else{
-				result=ERROR;
+
+
+
+
+		System.out.println(id);
+		System.out.println(itemName);
+		System.out.println(itemPrice);
+		System.out.println(itemStock);
+		System.out.println(count);
+		System.out.println(pay);
+		System.out.println(loginUserId);
+		System.out.println(userMasterId);
+		System.out.println("--------------------------------");
+
+		String[] idList=id.split(", ", 0);
+		String[] itemNameList=itemName.split(", ",0);
+		String[] itemPriceList=itemPrice.split(", ", 0);
+		String[] itemStockList=itemStock.split(", ", 0);
+		String[] countList=count.split(", ", 0);
+
+
+		int c=0;
+//		for(String check : checkList){
+		for(int i=0; i<idList.length;i++){
+			ItemInfoTransactionDTO dto=new ItemInfoTransactionDTO();
+			dto.setId(String.valueOf(idList[i]));
+			dto.setItemTransactionId(String.valueOf(idList[i]));
+			dto.setItemName(String.valueOf(itemNameList[i]));
+			int totalCount=Integer.parseInt(countList[i]);
+			int price=Integer.parseInt(itemPriceList[i]);
+			dto.setItemPrice(String.valueOf(price));
+			dto.setItemStock(String.valueOf(itemStockList[i]));
+			dto.setCount(String.valueOf(countList[i]));
+			int total=price * totalCount;
+			dto.setTotalPrice(String.valueOf(total));
+			dto.setTotalCount(String.valueOf(countList[i]));
+			dto.setUserMasterId(userMasterId);
+			dto.setPay(pay);
+
+			System.out.println("---ƒJ[ƒgî•ñ["+i+"]---");
+			System.out.println("ID               :"+dto.getId());
+			System.out.println("ITEMTRANSACTIONID:"+dto.getItemTransactionId());
+			System.out.println("ITEMNAME         :"+dto.getItemName());
+			System.out.println("ITEMPRICE        :"+dto.getItemPrice());
+			System.out.println("ITEMSTOCK        :"+dto.getItemStock());
+			System.out.println("COUNT            :"+dto.getCount());
+			System.out.println("TOTALPRICE       :"+dto.getTotalPrice());
+			System.out.println("TOTALCOUNT       :"+dto.getTotalCount());
+			System.out.println("USERMASTERID     :"+dto.getUserMasterId());
+			System.out.println("PAY              :"+dto.getPay());
+			System.out.println("------------------");
+			itemInfoTransactionList.add(dto);
+
+
+
+
+			try {
+
+				c += dao.insertUserBuyItemTransaction(dto.getItemTransactionId(), dto.getTotalPrice(), String.valueOf(dto.getTotalCount()), dto.getUserMasterId(), dto.getPay());
+				if(c>0){
+					System.out.println("DB‚Ö“o˜^");
+					result=SUCCESS;
+				}else{
+					System.out.println("DB‚Ö“o˜^Ž¸”s");
+					result=ERROR;
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 
-		} catch (SQLException e) {
-			e.printStackTrace();
 		}
+
 		return result;
 	}
 
