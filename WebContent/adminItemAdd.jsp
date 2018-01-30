@@ -28,7 +28,7 @@
 			<s:if test="errorMessage != ''">
 				<s:property value="errorMessage" escape="false" />
 			</s:if>
-			<s:form action="AdminItemAddConfirmAction">
+			<s:form action="AdminItemAddAction">
 			<table>
 				<tr>
 					<td>

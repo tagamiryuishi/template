@@ -40,6 +40,12 @@
 		     <result name="error">adminItemAddConfirm.jsp</result>
 		     </action>
 
+		     <!-- AdminItemAddCompleteAction -->
+		<action name="AdminItemAddCompleteAction" class="com.internousdev.template.action.AdminItemAddCompleteAction" method="execute">
+		     <result name="success">adminItemAddComplete.jsp</result>
+		     <result name="error">adminItemAddConfirm.jsp</result>
+		     </action>
+
 		<!-- HomeAction -->
 		<action name="HomeAction" class="com.internousdev.template.action.HomeAction" method="execute">
 			<result name="success">login.jsp</result>

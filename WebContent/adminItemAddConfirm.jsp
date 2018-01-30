@@ -31,7 +31,7 @@
 			<h1>以下を追加します。<br>よろしいでしょうか？</h1>
 
 			<table>
-			<s:form action="AdminItemAddConfirmAction">
+			<s:form action="AdminItemAddCompleteAction">
 				<tr>
 					<td>
 						<label>商品名:</label>
