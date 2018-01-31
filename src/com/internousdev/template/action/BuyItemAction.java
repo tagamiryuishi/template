@@ -74,8 +74,8 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 			System.out.println(itemStock);
 			System.out.println(count);
 			System.out.println(pay);
-			System.out.println(loginUserId);
-			System.out.println(userMasterId);
+			System.out.println("LOGINUSERID  : " + loginUserId);
+			System.out.println("USERMASTERID : " + userMasterId);
 
 			System.out.println("CATEGORY : " + category );
 

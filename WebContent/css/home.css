@@ -12,7 +12,6 @@ body {
 }
 
 
-
 /* ========TEMPLATE LAYOUT======== */
 
 
@@ -33,6 +32,11 @@ body {
 	font-family:Georgia;
 	}
 
+	.botan{position:absolute;
+	right:30px;
+	top:40px;
+	}
+
 	header ul{
 	float:right;
 	line-height:0px;
@@ -46,10 +50,6 @@ body {
     color:white;
     font-size:18px;
     }
-
-
-
-
 
 	#main {clear:both;
 	 width: 100%;
@@ -162,7 +162,7 @@ body {
      font-family:Georgia;
 position:absolute;
 top:55px;
-left:550px;
+left:650px;
 width:350px;
 height:auto;
 font-size:30px;
@@ -176,9 +176,30 @@ font-size:30px;
      left:30px;
      color:red;
      }
+     .picupstyle{
+     height:45px;
+     width:100%;
+     background-color:#444444;
+     }
 
-    .picupstyle{
-    height:45px;
-    width:100%;
-    background-color:#444444;
-    }
+   .image1{position:absolute;
+   top:500px;
+   left:50px;
+   }
+
+   .image2{position:absolute;
+   top:500px;
+   left:300px;
+   }
+
+   .image3{position:absolute;
+   top:500px;
+   left:550px;
+   }
+
+   .image4{position:absolute;
+   top:500px;
+   left:800px;
+   }
+
+

@@ -73,8 +73,6 @@ pageEncoding="UTF-8" %>
 			</table>
 			<br>
 				<s:submit value="追加" onclick="goGoAdminItemAddAction();" />
-				<s:submit value="更新" onclick="goAdminItemUpdateAction();" />
-				<s:submit value="削除" onclick="goAdminItemDeleteAction();" />
 		</s:form>
 		<br>
 			<div>

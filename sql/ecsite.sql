@@ -52,6 +52,7 @@ insert into item_info_transaction(item_name, category, item_price, item_stock,in
 
 ("大学受験本（初級）","book",1500,100,NOW()),
 ("大学受験本（中級）","book",1500,100,NOW()),
+("大学受験本（上級）","book",1500,100,NOW()),
 
 ("Tシャツ（ボーダー）","tops",2000,150,NOW()),
 ("Tシャツ（緑）","tops",2000,150,NOW()),

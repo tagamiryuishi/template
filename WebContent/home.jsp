@@ -16,16 +16,12 @@
 </head>
 
 
-
-
-
 <body>
 <header>
-<div class="logo">〜Life Style〜</div>
-<ul>
+<div class="logo">〜L-Style〜</div>
+<div class="botan"><ul>
 <li> <s:form action="LoginAction"><s:submit value="ログイン画面" /></s:form></li>
-
-</ul>
+</ul></div>
 </header>
 
 <div id="main">
@@ -44,7 +40,13 @@
 </div>
 </div>
 <div class="picup"><h1>Pickup!</h1></div>
+<div class="picupstyle"></div><br>
+<div class="image1"><a href='<s:url action="BuyItemAction?category=shoes" ><s:param name="userMasterId" value="%{loginUserId}"/></s:url>'><h2>ランニングシューズ</h2><img src="./image/ranning.jpg" width="160" height="160" style="border-radius:450px;"></a></div>
+<div class="image2"><a href='<s:url action="BuyItemAction?category=tops" ><s:param name="userMasterId" value="%{loginUserId}"/></s:url>'><h2>ボーダーTシャツ</h2><img src="./image/shirt.border.jpg" width="160" height="160" style="border-radius:450px;"></a></div>
+<div class="image3"><a href='<s:url action="BuyItemAction?category=book" ><s:param name="userMasterId" value="%{loginUserId}"/></s:url>'><h2>大学受験（初級）</h2><img src="./image/university.syokyu.png" width="160" height="160" style="border-radius:450px;"></a></div>
+<div class="image4"><a href='<s:url action="BuyItemAction?category=shoes" ><s:param name="userMasterId" value="%{loginUserId}"/></s:url>'><h2>体育館シューズ</h2><img src="./image/taiikukan.jpg" width="160" height="160" style="border-radius:450px;"></a></div>
 
-<div class="picupstyle">sss</div>
+<div class="footer"></div>
+
 </body>
 </html>
