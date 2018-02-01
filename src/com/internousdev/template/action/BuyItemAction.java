@@ -93,7 +93,9 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 				return ERROR;
 			}
 			for(String check : checkList){
-				System.out.println(check);
+				System.out.println("BuyItemAction-------");
+				System.out.println("チェックされた項目："+check);
+				System.out.println("--------------------");
 			}
 
 			for(String check : checkList){

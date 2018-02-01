@@ -49,17 +49,15 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 		String result = ERROR;
 		System.out.println("------BuyItemConfirmAction");
 
-
-			System.out.println(id);
-			System.out.println(itemName);
-			System.out.println(itemPrice);
-			System.out.println(itemStock);
-			System.out.println(count);
-			System.out.println(pay);
+			System.out.println("ID : "+id);
+			System.out.println("ITEMNAME : "+ itemName);
+			System.out.println("ITEMPRICE : "+itemPrice);
+			System.out.println("ITEMSTOCK : "+itemStock);
+			System.out.println("COUNT : "+count);
+			System.out.println("PAY : "+pay);
 			System.out.println("CHECKLIST  : " + checkList);
 			System.out.println("LOGINUSERID  : " + loginUserId);
 			System.out.println("USERMASTERID : " + userMasterId);
-
 
 			String[] idList=id.split(", ", 0);
 			String[] itemNameList=itemName.split(", ",0);
@@ -78,43 +76,45 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 				itemInfoTransactionList = dao.getItemInfoTransactionList();
 				return ERROR;
 			}
-			for(String check : checkList){
-				System.out.println("CHECKED ID-------->" + check);
-				int checkId = Integer.parseInt(check);
+			System.out.println("ID数--------->" + idList.length);
+			for(int i=0; i<idList.length; i++) {
+				for(String check : checkList){
+					System.out.println("CHECKED ID-------->" + check);
+					if(check.equals(String.valueOf(idList[i]))) {
+//						int checkId = Integer.parseInt(check);
+						ItemInfoTransactionDTO dto = new ItemInfoTransactionDTO();
+						dto.setId(idList[i].toString());
+						dto.setItemTransactionId(idList[i].toString());
+						dto.setItemName(itemNameList[i].toString());
+						dto.setItemPrice(itemPriceList[i].toString());
+						dto.setItemStock(itemStockList[i].toString());
+						dto.setCount(countList[i].toString());
 
-				ItemInfoTransactionDTO dto = new ItemInfoTransactionDTO();
-				dto.setId(idList[checkId - 1].toString());
-				dto.setItemTransactionId(idList[checkId - 1].toString());
-				dto.setItemName(itemNameList[checkId - 1].toString());
-				dto.setItemPrice(itemPriceList[checkId - 1].toString());
-				dto.setItemStock(itemStockList[checkId - 1].toString());
-				dto.setCount(countList[checkId - 1].toString());
+						int totalCount=Integer.parseInt(countList[i].toString());
+						int price=Integer.parseInt(itemPriceList[i].toString());
+						int total=price * totalCount;
+						dto.setTotalPrice(String.valueOf(total));
+						dto.setTotalCount(String.valueOf(countList[i].toString()));
+						dto.setUserMasterId(userMasterId);
+						dto.setPay(pay);
 
+						System.out.println("---カート情報["+(i)+"]---");
+						System.out.println("ID               :"+dto.getId());
+						System.out.println("ITEMTRANSACTIONID:"+dto.getItemTransactionId());
+						System.out.println("ITEMNAME         :"+dto.getItemName());
+						System.out.println("ITEMPRICE        :"+dto.getItemPrice());
+						System.out.println("ITEMSTOCK        :"+dto.getItemStock());
+						System.out.println("COUNT            :"+dto.getCount());
+						System.out.println("TOTALPRICE       :"+dto.getTotalPrice());
+						System.out.println("TOTALCOUNT       :"+dto.getTotalCount());
+						System.out.println("USERMASTERID     :"+dto.getUserMasterId());
+						System.out.println("PAY              :"+dto.getPay());
+						System.out.println("------------------");
 
-				int totalCount=Integer.parseInt(countList[checkId - 1].toString());
-				int price=Integer.parseInt(itemPriceList[checkId - 1].toString());
-				int total=price * totalCount;
-				dto.setTotalPrice(String.valueOf(total));
-				dto.setTotalCount(String.valueOf(countList[checkId - 1].toString()));
-				dto.setUserMasterId(userMasterId);
-				dto.setPay(pay);
-
-				System.out.println("---カート情報["+checkId+"]---");
-				System.out.println("ID               :"+dto.getId());
-				System.out.println("ITEMTRANSACTIONID:"+dto.getItemTransactionId());
-				System.out.println("ITEMNAME         :"+dto.getItemName());
-				System.out.println("ITEMPRICE        :"+dto.getItemPrice());
-				System.out.println("ITEMSTOCK        :"+dto.getItemStock());
-				System.out.println("COUNT            :"+dto.getCount());
-				System.out.println("TOTALPRICE       :"+dto.getTotalPrice());
-				System.out.println("TOTALCOUNT       :"+dto.getTotalCount());
-				System.out.println("USERMASTERID     :"+dto.getUserMasterId());
-				System.out.println("PAY              :"+dto.getPay());
-				System.out.println("------------------");
-
-				itemInfoTransactionList.add(dto);
+						itemInfoTransactionList.add(dto);
+					}
+				}
 			}
-
 //
 //			for(int i=0;i<idList.length;i++){
 //
